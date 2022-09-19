@@ -19,7 +19,7 @@ export default function Home() {
         <h1 className={styles.title}>
           Bienvenue sur mon site games product shop - Léonard Ringot
         </h1>
-        
+        <Listegenres></Listegenres>
 
         <p className={styles.description}>
           Get started by editing{' '}
