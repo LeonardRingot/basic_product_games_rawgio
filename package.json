@@ -1,5 +1,5 @@
 {
-  "name": "basic_product_games_rawgio",
+  "name": "games",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -16,5 +16,18 @@
   "devDependencies": {
     "eslint": "8.23.1",
     "eslint-config-next": "12.3.0"
-  }
+  },
+  "description": "This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).",
+  "main": "next.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeonardRingot/basic_product_games_rawgio.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LeonardRingot/basic_product_games_rawgio/issues"
+  },
+  "homepage": "https://github.com/LeonardRingot/basic_product_games_rawgio#readme",
+  "keywords": []
 }
