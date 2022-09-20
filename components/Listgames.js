@@ -15,20 +15,23 @@ export default function Listegames(props)
   }
   const handleClicGame = async(e) => {
     const id = Number(e.currentTarget.dataset.id);
-    console.log(id);
     setChosenGame(id);
 };
 useEffect(() => {
   fetchGame();
 }, []);
 
+const [selectedGame, setValue] = useState(4);
+function filterByGame() {
+  console.log("Game :" + selectedGame);
+}
 return (
 
   <div>
-      <p>liste des jeux </p>
+      <p>Votre Liste de jeux filtré par {} </p>
       {allGames.map((games) => (
-          <h1>{games.name}
-          <button data-id={games.id} onClick={handleClicGame}></button>
+          <h1>
+         {selectedGame}
           </h1>
       ))}
 

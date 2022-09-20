@@ -3,9 +3,8 @@ import { useState, useEffect } from "react";
 import Listgames from '../components/Listgames'
 
 export default function Listegenres(props) {
-
   const [allGenres, setAllGenres] = useState([]);
-    const [chosenGenre, setChosenGenre] = useState();
+  const [chosenGenre, setChosenGenre] = useState(0);
     const fetchGenres = async () => 
     {
     const res = await fetch('https://api.rawg.io/api/genres?key=997e5039a0574d7e9c2fdc4fd0fd59f0') .catch((err) => console.log("ERR" + err));
@@ -14,33 +13,27 @@ export default function Listegenres(props) {
     }
     const handleClicGenre = async(e) => {
       const id = Number(e.currentTarget.dataset.id);
-      console.log(id);
       setChosenGenre(id);
   };
   useEffect(() => {
     fetchGenres();
 }, []);
 
+const [selectedGenre, setValue] = useState(4);
+
+function filterByGenre() {
+  console.log("Genre :" + selectedGenre);
+}
 
 return (
-
     <div>
-        <p>liste de genres de jeux videos</p>
-        
-        {allGenres.map((genre) => (
-            <select>
-              
-            <option>{genre.name}</option>
-             
-            <button data-id={genre.id} onClick={handleClicGenre}></button>
-           </select>
-        ))}
-          
-
-        
+      <p>liste de genres de jeux videos</p>
+      <select selectedGenre={selectedGenre} onChange={(e) => {setValue(e.target.value);}}>
+        {allGenres.map((genre) => (<option value={genre.id}>{genre.name}</option>))}
+      </select>
+      <button onClick={filterByGenre}>submit</button>
+      
     </div>
-
-
   );
 }
 
