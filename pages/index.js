@@ -3,7 +3,8 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Listgames from '../components/Listgames'
 import Listplatforms from '../components/Listplatforms'
-import Listegenres from '../components/Listgenres'
+import Listgenres from '../components/Listgenres'
+
 
 
 export default function Home() {
@@ -15,16 +16,26 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      
       <main className={styles.main}>
         <h1 className={styles.title}>
           Bienvenue sur mon site games product shop - Léonard Ringot
         </h1>
-        <Listegenres></Listegenres>
-
+        
+        <Listgenres>
+          
+        </Listgenres>
+        <Listgames></Listgames>
+        
+        
+        
+        
+        
         <p className={styles.description}>
           Get started by editing{' '}
           <code className={styles.code}>pages/index.js</code>
         </p>
+        
 
         <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>

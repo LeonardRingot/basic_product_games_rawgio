@@ -3,6 +3,25 @@
   
 }
 
+.selectormenufilter{
+  width: 100%;
+}
+.filterjeux
+{
+  float: left;
+  width: 20%;
+}
+.filtergenres
+{
+  float: left;
+  width: 20%;
+}
+.filtergenres
+{
+  float: left;
+  width: 20%;
+}
+
 .main {
   min-height: 100vh;
   padding: 4rem 0;
