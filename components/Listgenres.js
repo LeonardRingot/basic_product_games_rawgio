@@ -1,10 +1,14 @@
 import { execOnce } from "next/dist/shared/lib/utils";
 import { useState, useEffect } from "react";
 import Listgames from '../components/Listgames'
+import Styles from '../styles/genre.module.css'
+
 
 export default function Listegenres(props) {
   const [allGenres, setAllGenres] = useState([]);
-  const [chosenGenre, setChosenGenre] = useState(0);
+  const [chosenGenre, setChosenGenre] = useState();
+  const [selectedGenre, setValue] = useState(4);
+
     const fetchGenres = async () => 
     {
     const res = await fetch('https://api.rawg.io/api/genres?key=997e5039a0574d7e9c2fdc4fd0fd59f0') .catch((err) => console.log("ERR" + err));
@@ -12,42 +16,27 @@ export default function Listegenres(props) {
     setAllGenres(genres.results);
     }
     const handleClicGenre = async(e) => {
-      const id = Number(e.currentTarget.dataset.id);
-      setChosenGenre(id);
+      setChosenGenre(selectedGenre);
   };
   useEffect(() => {
     fetchGenres();
 }, []);
 
-const [selectedGenre, setValue] = useState(4);
-
-function filterByGenre() {
-  console.log("Genre :" + selectedGenre);
-}
-
 return (
-    <div>
-      <p>liste de genres de jeux videos</p>
-      <select selectedGenre={selectedGenre} onChange={(e) => {setValue(e.target.value);}}>
-        {allGenres.map((genre) => (<option value={genre.id}>{genre.name}</option>))}
+  <><div>
+      <h1>Liste genres jeux videos</h1>
+      <select selected={selectedGenre} onChange={(e) => {setValue(e.target.value);}}>
+        {allGenres.map((genre) => (<option key={genre.name} value={genre.id}>{genre.name}</option>))}
       </select>
-      <button onClick={filterByGenre}>submit</button>
-      
+      <button onClick={handleClicGenre}>Filtrer</button>
     </div>
+    <Listgames genre={chosenGenre}></Listgames>
+  </>
   );
 }
 
-  /*fetch ('https://api.rawg.io/api/genres?key=997e5039a0574d7e9c2fdc4fd0fd59f0').then((data) =>{
-    return data.json();
-   }).then((completedatagenres)=>{
-    console.table(completedatagenres.results);
-    //console.log(completedatagenres.results);
-    return completedatagenres.results;
-    
-    
-   
-  })
-  */
+
+ 
   
     
   

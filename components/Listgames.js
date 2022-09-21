@@ -1,47 +1,42 @@
-
 import { execOnce } from "next/dist/shared/lib/utils";
 import { useState, useEffect } from "react";
-import Listgenres from '../components/Listgenres'
+import Styles from '../styles/genre.module.css'
+import styles from '../styles/Home.module.css'
 
-export default function Listegames(props) 
+export default function Listegames({genre}) 
 {
-  const [allGames, setAllGames] = useState([]);
-  const [chosenGame, setChosenGame] = useState();
-  const fetchGame = async () => 
+  const [games, setGames] = useState([]);
+  const [prev, setPrev] = useState([]);
+  const [next, setNext] = useState([]);
+
+  const fetchGames = async () => 
   {
-  const res = await fetch('https://api.rawg.io/api/games?key=997e5039a0574d7e9c2fdc4fd0fd59f0') .catch((err) => console.log("ERR" + err));
-  const games = await res.json();
-  setAllGames(games.results);
+    if(genre != null){
+      const res = await fetch("https://api.rawg.io/api/games?key=997e5039a0574d7e9c2fdc4fd0fd59f0&page_size=40&genres=" + genre) .catch((err) => console.log("ERR" + err));
+      const games = await res.json();
+      setGames(games.results);
+    }
   }
-  const handleClicGame = async(e) => {
-    const id = Number(e.currentTarget.dataset.id);
-    setChosenGame(id);
-};
-useEffect(() => {
-  fetchGame();
-}, []);
 
-const [selectedGame, setValue] = useState(4);
-function filterByGame() {
-  console.log("Game :" + selectedGame);
-}
-return (
+  const handleClicGenre = async(e) => {
+      const id = Number(e.currentTarget.dataset.genreId);
+  };
 
-  <div>
-      <p>Votre Liste de jeux filtré par {} </p>
-      {allGames.map((games) => (
-          <h1>
-         {selectedGame}
+  useEffect(() => {
+    fetchGames();
+  }, [genre]);
+
+  return (
+    <>
+      <div className={styles.card}>
+          <h1 >
+            {games?.map((game) => (<p key={game.name} onClick={handleClicGenre}>{game.name}</p> ))}
           </h1>
-      ))}
-
-
+      </div>
       
-  </div>
-
-
-);
-  }
+    </>
+  );
+}
 
     
 
