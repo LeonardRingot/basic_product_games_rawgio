@@ -1,13 +1,12 @@
 .container {
   padding: 0 2rem;
- 
+ text-align: center;
   display: grid;
   justify-content: center;
+  background-color: #db721c;
   
   
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
-  grid-auto-rows: minmax(100px, auto);
+
 }
 
 
@@ -21,6 +20,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #db721c;
   
 }
 
@@ -31,6 +31,7 @@
   border-top: 1px solid #eaeaea;
   justify-content: center;
   align-items: center;
+  background-color: #db721c;
 }
 
 .footer a {
@@ -38,11 +39,14 @@
   justify-content: center;
   align-items: center;
   flex-grow: 1;
+  background-color: #db721c;
+  
 }
 
 .title a {
   color: #0070f3;
   text-decoration: none;
+  background-color: #db721c;
 }
 
 .title a:hover,
@@ -55,6 +59,7 @@
   margin: 0;
   line-height: 1.15;
   font-size: 4rem;
+  background-color: #db721c;
 }
 
 .title,
@@ -66,6 +71,7 @@
   margin: 4rem 0;
   line-height: 1.5;
   font-size: 1.5rem;
+  background-color: #db721c;
 }
 
 .code {
@@ -75,6 +81,7 @@
   font-size: 1.1rem;
   font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
     Bitstream Vera Sans Mono, Courier New, monospace;
+    background-color: #db721c;
 }
 
 .grid {
@@ -84,17 +91,21 @@
   flex-wrap: wrap;
  
   width: 100%;
+   background-color: #db721c;
+
 }
 
 .card {
   margin: 1rem;
   padding: 1.5rem;
-  
+  justify-content: center;
   text-align: center;
   color: inherit;
   text-decoration: none;
-  border: 10px solid #6e03fa;
+  border: 10px solid #10071b;
   border-radius: 10px;
+  color: #000;
+  
   
   
 }
@@ -104,25 +115,31 @@
 .logo {
   height: 1em;
   margin-left: 0.5rem;
+  background-color: #db721c;
 }
 
 @media (max-width: 600px) {
   .grid {
     width: 100%;
     flex-direction: column;
+    background-color: #db721c;
   }
+
 }
 
 @media (prefers-color-scheme: dark) {
   .card,
   .footer {
-    border-color: #222;
+    
+    background-color: #db721c;
   }
   .code {
     background: #111;
+    background-color: #db721c;
   }
   .logo img {
     filter: invert(1);
+    background-color: #db721c;
   }
 }
 

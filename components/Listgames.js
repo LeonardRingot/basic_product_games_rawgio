@@ -6,8 +6,8 @@ import styles from '../styles/Home.module.css'
 export default function Listegames({genre}) 
 {
   const [games, setGames] = useState([]);
-  const [prev, setPrev] = useState([]);
-  const [next, setNext] = useState([]);
+  //const [prev, setPrev] = useState([]);
+  //const [next, setNext] = useState([]);
 
   const fetchGames = async () => 
   {
@@ -37,6 +37,7 @@ export default function Listegames({genre})
     </>
   );
 }
+
 
     
 
